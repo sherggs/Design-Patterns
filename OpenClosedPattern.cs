@@ -5,12 +5,12 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DesignPatterns;
+using OpenClosedPatterns;
 using static System.Console;
-using static DesignPatterns.Product;
+using static OpenClosedPatterns.Product;
 // using static DesignPatterns.Product;
 
-namespace DesignPatterns
+namespace OpenClosedPatterns
 {
     public enum Color
     {
@@ -158,10 +158,7 @@ public class BetterFilter : IFilter<Product>
             {
                 WriteLine($" - {p.Name} is green");
             }
-
-            // ^^ BEFORE
-
-            // vv AFTER
+            
             var bf = new BetterFilter();
             WriteLine("Green products (new):");
             foreach (var p in bf.Filter(products, new ColorSpecification(Color.Green)))
